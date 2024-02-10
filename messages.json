@@ -1,4 +1,6 @@
 {
     "welcome": "Hello! Soft Reminder is a bot that serves as your personal assistant for managing significant events. It's crafted to store crucial dates and occasions, ensuring you never miss out by providing timely reminders.\nUse /help to see the list of commands.",
-    "help": "Here is how can you use the bot:\n/help - provides a list of commands\n/clear - clears all excisting events\n/add - adds new event\n/today - lists all today's events\n/tomorrow - lists all tomorrow's events\n/upcoming - lists all upcoming events\n/delete - deltes an event"
+    "help": "Here is how can you use the bot:\n/help - provides a list of commands\n/clear - clears all excisting events\n/add - adds new event\n/today - lists all today's events\n/tomorrow - lists all tomorrow's events\n/upcoming - lists all upcoming events\n/delete - deletes an event",
+    "noTasks": "You have no upcoming tasks.",
+    "error": "Sorry, something went wrong. Please try again later."
 }
