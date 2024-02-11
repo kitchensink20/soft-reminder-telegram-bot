@@ -1,6 +1,20 @@
 {
-    "welcome": "Hello! Soft Reminder is a bot that serves as your personal assistant for managing significant events. It's crafted to store crucial dates and occasions, ensuring you never miss out by providing timely reminders.\nUse /help to see the list of commands.",
-    "help": "Here is how can you use the bot:\n/help - provides a list of commands\n/clear - clears all excisting events\n/add - adds new event\n/today - lists all today's events\n/tomorrow - lists all tomorrow's events\n/upcoming - lists all upcoming events\n/delete - deletes an event",
-    "noTasks": "You have no upcoming tasks.",
-    "error": "Sorry, something went wrong. Please try again later."
+    "welcome": "Hello!🌟 OccasionKeeper is a bot that serves as your personal assistant for managing significant events. It's crafted to store crucial dates and occasions, ensuring you never miss out by providing timely reminders.\nUse /help to see the list of commands.",
+    "help": "😼Here is how can you use the bot:\n/help - provides a list of commands\n/clear - clears all excisting events\n/add - adds new event\n/delete - deletes an event\n/today - lists all today's events\n/tomorrow - lists all tomorrow's events\n/upcoming - lists all upcoming events",
+    "noEvents": "😸You have no upcoming events.",
+    "error": "😿Sorry, something went wrong. Please try again later.",
+    "allEventsDeleted": "🗑️All events have been deleted.",
+    "upcomingEvents": "📅Here are your upcoming events:\n\n",
+    "requestEventDescription": "📝Describe the event you want to add.",
+    "requestEventDate": "📅When is the event? (YYYY-MM-DD format)",
+    "requestEventTime": "⏰What time is the event? (HH:MM format)",
+    "requestEventId": "🆔Enter the ID of the event you want to delete.",
+    "noEventsToDelete": "😿You have no events to delete.",
+    "eventDeleted": "🗑️Event has been deleted.",
+    "eventNotDeleted": "😿Event with such ID does not exist on your list.",
+    "invalidDate": "😿Invalid date format. Please use YYYY-MM-DD format. It also should refer to the future.",
+    "invalidTime": "😿Invalid time format. Please use HH:MM format.",
+    "eventAdded": "🎉Event has been added.",
+    "unexistingDate": "😿The date you entered does not exist.",
+    "doYouNeedTimeQuestion": "⏰Do you want to add a time to the event?"
 }
