@@ -2,9 +2,11 @@
     "welcome": "Hello!🌟 OccasionKeeper is a bot that serves as your personal assistant for managing significant events. It's crafted to store crucial dates and occasions, ensuring you never miss out by providing timely reminders.\nUse /help to see the list of commands.",
     "help": "😼Here is how can you use the bot:\n/help - provides a list of commands\n/clear - clears all excisting events\n/add - adds new event\n/delete - deletes an event\n/today - lists all today's events\n/tomorrow - lists all tomorrow's events\n/upcoming - lists all upcoming events",
     "noEvents": "😸You have no upcoming events.",
+    "noEventsToday": "😸You have no events today.",
+    "noEventsTomorrow": "😸You have no events tomorrow.",
     "error": "😿Sorry, something went wrong. Please try again later.",
     "allEventsDeleted": "🗑️All events have been deleted.",
-    "upcomingEvents": "📅Here are your upcoming events:\n\n",
+    "upcomingEvents": "📎Here are your upcoming events:\n\n",
     "requestEventDescription": "📝Describe the event you want to add.",
     "requestEventDate": "📅When is the event? (YYYY-MM-DD format)",
     "requestEventTime": "⏰What time is the event? (HH:MM format)",
@@ -16,5 +18,9 @@
     "invalidTime": "😿Invalid time format. Please use HH:MM format.",
     "eventAdded": "🎉Event has been added.",
     "unexistingDate": "😿The date you entered does not exist.",
-    "doYouNeedTimeQuestion": "⏰Do you want to add a time to the event?"
+    "doYouNeedTimeQuestion": "⏰Do you want to add a time to the event?",
+    "whatTaskToDelete": "❌What event do you want to delete?",
+    "addLocationQuestion": "📍Do you want to add a location to the event?",
+    "requestEventLocation": "📍Where is the event?",
+    "eventsReminder": "📌Hey! Do not forget about the upcoming event: \n\n"
 }

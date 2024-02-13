@@ -2,11 +2,11 @@ const messages = require("../messages");
 
 function getEventsListAsMessage(events) {
     let strEventsList = events
-        .map(event => `📍Event: ${event.description}\n📅 Date: ${trimDate(event.due_date)}` + (event.due_time ? ("\n🕗Time: " + event.due_time) : "") + `\n🆔ID: ${event.id}\n`);
+        .map(event => `🖇️Event: ${event.description}\n📅Date: ${trimDate(event.due_date)}` + (event.due_time ? ("\n🕗Time: " + event.due_time) : "") + (event.location ? ("\n📍Location: " + event.location) : ""));
     if (strEventsList.length === 0) {    
-        return messages.noEvents;
+        return null;
     }  else {
-        return messages.upcomingEvents + strEventsList.join("\n\n");
+        return strEventsList.join("\n\n");
     }
 }
 

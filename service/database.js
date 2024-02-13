@@ -16,13 +16,19 @@ async function createUserIfNotExists(userId, is_bot, first_name, last_name, user
     }
 }
 
-async function createEvent(ownerId, description, dueDate, dueTime) {
-    const [result] = await connection.query("INSERT INTO events (owner_id, description, due_date, due_time) VALUES (?, ?, ?, ?)", [ownerId, description, dueDate, dueTime]);
+async function getAllUsers() {
+    const [users] = await connection.query("SELECT * FROM users");
+    return users;
+}
+
+async function createEvent(ownerId, description, dueDate, dueTime = null, location = null) {
+    const [result] = await connection.query("INSERT INTO events (owner_id, description, due_date, due_time, location) VALUES (?, ?, ?, ?, ?)", [ownerId, description, dueDate, dueTime, location]);
     return result.affectedRows > 0;
 }
 
 async function deleteEventById(eventId, ownerId) {
     let [event] = await connection.query("SELECT * FROM events WHERE id = ?", [eventId]); 
+
     if (event == undefined || event[0].owner_id != ownerId) {
         return false;
     } else {
@@ -31,8 +37,23 @@ async function deleteEventById(eventId, ownerId) {
     }
 }
 
-async function getAllEventsByOwnerId(userId) {
+async function getAllActiveEventsByOwnerId(userId) {
+    const [events] = await connection.query("SELECT * FROM events WHERE owner_id = ? AND active = 1 ORDER BY due_date", [userId]);
+    return events;
+}
+
+async function getAllEventsByOwnerId(userId) {  
     const [events] = await connection.query("SELECT * FROM events WHERE owner_id = ? ORDER BY due_date", [userId]);
+    return events;
+}
+
+async function getAllTodayEventsByOwnerId(userId) {
+    const [events] = await connection.query("SELECT * FROM events WHERE owner_id = ? AND due_date = CURDATE() ORDER BY due_date", [userId]);
+    return events;
+}
+
+async function getAllTomorrowEventsByOwnerId(userId) {  
+    const [events] = await connection.query("SELECT * FROM events WHERE owner_id = ? AND due_date = DATE_ADD(CURDATE(), INTERVAL 1 DAY) ORDER BY due_date", [userId]);
     return events;
 }
 
@@ -40,10 +61,19 @@ async function deleteAllEventsByOwnerId(userId) {
     await connection.query("DELETE FROM events WHERE owner_id = ?", [userId]);
 }
 
+async function deactivateAllPastEvents() {
+    await connection.query("UPDATE events SET active = 0 WHERE due_date < CURDATE()");
+}
+
 module.exports = {
     createUserIfNotExists,
+    getAllUsers,
+    getAllActiveEventsByOwnerId,
     getAllEventsByOwnerId,
+    getAllTomorrowEventsByOwnerId,
+    getAllTodayEventsByOwnerId,
     deleteAllEventsByOwnerId,
     createEvent,
-    deleteEventById
+    deleteEventById,
+    deactivateAllPastEvents
 };
