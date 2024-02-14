@@ -5,6 +5,7 @@ require('dotenv').config();
 const { Telegraf, Scenes, session } = require('telegraf');
 const { getEventsListAsMessage, isValidDate, isValidTime } = require('./service/data-converter');
 const { BaseScene } = Scenes;
+const schedule = require('node-schedule');
 
 const bot_token = process.env.BOT_TOKEN;
 const commands = ['/start', '/help', '/clear', '/add', '/delete', '/today', '/tomorrow', '/upcoming'];
@@ -233,6 +234,7 @@ async function notifyAllUsersAboutTomorrowEvents() {
 }
 
 setInterval(deactivateAllPastEvents, 86400000); 
-setInterval(notifyAllUsersAboutTomorrowEvents, 86400000);
+schedule.scheduleJob({hour: 21, minute: 0}, notifyAllUsersAboutTomorrowEvents);
+
 
 
